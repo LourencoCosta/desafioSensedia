@@ -34,17 +34,6 @@ public class TokenService {
 		return restTemplate.postForObject(url, httpEntity, String.class);
 	}
 	
-	public static void main(String[] args) {
-
-		// Gerando Base64
-		String encoded = Base64.encodeBase64String("Gerando texto em Base64".getBytes());
-		System.out.println("Base64 : "+ encoded);
-
-		// Gerando o texto a partir da Base64
-		byte[] decodedBytes = Base64.decodeBase64("ZmRmYTk5MzMtNDU1Mi0zNmVhLTkxMDUtZDFmZjUwNWYwM2FhOmU5YzU0M2FhLTE5NTEtMzU1NS1iMzJmLTUyYjhkM2QxMzk4Nw");
-		System.out.println("Texto: " + new String(decodedBytes));
-	}
-	
 	public String toBase64(String clientId, String secret) {
 		return Base64.encodeBase64String(clientId.concat(":").concat(secret) .getBytes());
 	}

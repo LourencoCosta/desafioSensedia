@@ -8,6 +8,7 @@ class DesafioSensediaApplicationTests {
 
 	@Test
 	void contextLoads() {
+		//Nao foi possivel implementar testes
 	}
 
 }

@@ -32,11 +32,6 @@ public class SortQueryService {
 		httpHeaders.set("access_token", accessToken);
 		HttpEntity<String> httpEntity = new HttpEntity<String>(httpHeaders);
 		return restTemplate.exchange(url, HttpMethod.POST, httpEntity, Salarys.class).getBody();
-		
-		//HttpHeaders headers = new HttpHeaders();
-		//headers.setAccept(Arrays.asList(MediaType.APPLICATION_JSON));
-		//HttpEntity<String> entity = new HttpEntity<String>(headers);
-		//return restTemplate.exchange("http://localhost:3000/", HttpMethod.GET, entity, Salarys.class).getBody();
 	}
 
 }

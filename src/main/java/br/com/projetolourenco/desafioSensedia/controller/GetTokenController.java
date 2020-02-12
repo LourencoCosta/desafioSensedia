@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.projetolourenco.desafioSensedia.model.Identification;
 import br.com.projetolourenco.desafioSensedia.service.AuthorizationService;
 import br.com.projetolourenco.desafioSensedia.service.TokenService;
 
@@ -21,12 +22,7 @@ public class GetTokenController {
 	TokenService tokenService;
 
 	@PostMapping
-	public String token(@RequestBody String clientId) {
-		/*
-		 * Essa nao eh a melhor forma de lida com os dados 
-		 * que chegam em formato JSON da requisicao
-		 */
-		String client = clientId.split(":")[1].replace("}", "").replace("\"", "").trim();
-		return tokenService.getToken(authorizationService.getAuthorization(client).replace("\"}", "").split("code=")[1]);
+	public String token(@RequestBody Identification indentification) {
+		return tokenService.getToken(indentification.getClientId(), authorizationService.getAuthorization(indentification.getClientId()).replace("\"}", "").split("code=")[1]);
 	}
 }
